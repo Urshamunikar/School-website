@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animated Header with Responsive NavBar</title>
+    <style>
+  
+
+ 
+header {
+ 
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+}
+ 
+header:before {
+  content: "";
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+ 
+}
+ 
+header nav {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+ 
+header nav .logo { 
+color: black;
+  font-size: 30px; 
+  padding: 20px 20px 10px 20px;
+   
+}
+ 
+header nav .logo a { 
+    color: black; 
+}
+ 
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+ 
+header nav li a {
+  color: black;
+  display: block;
+  position: relative;
+  padding: 20px 20px 10px;
+  font-size: 15px;
+   
+}
+ 
+header nav li a:before, header nav li a:after {
+  content: "";
+  bottom: 0;
+  width: 0px;
+  height: 2px;
+  display: block;
+  position: absolute;
+  background-color: #fff;
+
+}
+ 
+header nav li a:before { right: 50%; }
+header nav li a:after { left: 50%; }
+ 
+header nav li a:hover:before , header nav li a:hover:after {
+  width: 50%;
+}
+ 
+
+@media only screen and (max-width: 290px) {
+  header nav ul { 
+    width: 100%; 
+    text-align: center;
+    flex-direction: column; 
+  }
+}
+    </style>
+</head>
+    <body>
+        <header>
+  <nav>
+    <div class="logo"><a href="#"><img src="/img/cal.jpg" width="60px" height="50px" alt=""></a></div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+    </body>
+</html>

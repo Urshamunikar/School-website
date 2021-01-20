@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        
+        .card img{
+            height: 40vh;
+            width: 100%;
+        }
+        .card-flip .card-block {
+            color:white;
+            background-color: #6962d5;
+        }
+        p{
+            background-color: white;
+            color: black;
+            padding: 10%;
+        }
+        
+
+        input[type='checkbox'] {
+            display: none;
+        }
+
+        /* Flip Cards CSS */
+        .card-container {
+            display: grid;
+            perspective: 700px;
+        }
+
+        .card-flip {
+            display: grid;
+            grid-template: 1fr / 1fr;
+            grid-template-areas: "frontAndBack";
+            transform-style: preserve-3d;
+            transition: all 0.7s ease;
+        }
+
+        .card-flip div {
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .front {
+            grid-area: frontAndBack;
+            
+        }
+        .card-img-top{
+            
+opacity: 0.4;
+
+}
+
+        .back {
+            grid-area: frontAndBack;
+            transform: rotateY(-180deg);
+        }
+
+        input[type='checkbox']:checked+.card-container .card-flip {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- Card 1 -->
+            <input type="checkbox" id="card-1" />
+            <label class="col-md-2 card-container" for='card-1'>
+                <div class="card-flip">
+                    <!-- Card 1 Front -->
+                    <div class="card front">
+                        <img src="http://terseschool.edu.np/Images/Feature/7af510b8-8966-45cf-9202-a42e6af86767.jpg"
+                            class="card-img-top img-fluid">
+                        <div class="card-block">
+                            <h4 style="text-align: center;padding-top: 10px;" class="card-title">Cafeteria</h4>
+                        </div>
+                    </div>
+                    <!-- End Card 1 Front -->
+
+                    <!-- Card 1 Back -->
+                    <div class="card back">
+                        <div class="card-header">
+                            Cafeteria
+                        </div>
+                        <div class="card-block">
+
+                            <p class="card-text">School has cafeteria to provide hygenic food for the students as
+                                reasonable
+                                cost . Junk food is totally band in school. </p>
+
+                        </div>
+                    </div>
+                    <!-- End Card 1 Back -->
+                </div>
+            </label>
+            <!-- End Card 1 -->
+
+            <!-- Card 2 -->
+            <input type="checkbox" id="card-2" />
+            <label class="col-md-2 card-container" for='card-2'>
+                <div class="card-flip">
+                    <!-- Card 2 Front -->
+                    <div class="card front">
+                        <img src="http://terseschool.edu.np/Images/Feature/5bc51ede-c262-4d92-a80e-7defccd557c1.jpg"
+                            class="card-img-top img-fluid">
+                        <div class="card-block">
+                            <h4 style="text-align: center;padding-top: 10px;" class="card-title">Computer Education</h4>
+                        </div>
+                    </div>
+                    <!-- End Card 2 Front -->
+
+                    <!-- Card 2 Back -->
+                    <div class="card back">
+                        <div class="card-header">
+                            Computer Education
+                        </div>
+                        <div class="card-block">
+
+                            <p class="card-text">The school has separate computer lab with efficient instructors and installation of sufficient number of computers.
+                                The students of class four to ten have regular computer classes as optional subject. 
+                                </p>
+
+                        </div>
+                    </div>
+                    <!-- End Card 2 Back -->
+                </div>
+            </label>
+            <!-- End Card 2 -->
+
+            <!-- Card 3 -->
+            <input type="checkbox" id="card-3" />
+            <label class="col-md-2 card-container" for='card-3'>
+                <div class="card-flip">
+                    <!-- Card 3 Front -->
+                    <div class="card front">
+                        <img src="http://terseschool.edu.np/Images/Feature/4aca4509-69d4-483b-bb9a-8a1b67e0e4a7.jpg"
+                            class="card-img-top img-fluid">
+                        <div class="card-block">
+                            <h4 style="text-align: center;padding-top: 10px;" class="card-title">Classrooms</h4>
+                        </div>
+                    </div>
+                    <!-- End Card 3 Front -->
+
+                    <!-- Card 3 Back -->
+                    <div class="card back">
+                        <div class="card-header">
+                            Classrooms
+                        </div>
+                        <div class="card-block">
+
+                            <p class="card-text">Classrooms are spacious and well-ventilated with ample nature and artificial lighting and cooling facilities. Properly designed furniture, dust free white boards and power supply for audio-visual facilities are standard features in our classrooms.
+                            </p>
+
+                        </div>
+                    </div>
+                    <!-- End Card 3 Back -->
+                </div>
+            </label>
+            <!-- End Card 3 -->
+            <!-- Card 4 -->
+            <input type="checkbox" id="card-4" />
+            <label class="col-md-3 card-container" for='card-4'>
+                <div class="card-flip">
+                    <!-- Card 4 Front -->
+                    <div class="card front">
+                        <img src="http://terseschool.edu.np/Images/Feature/bbdfef71-a016-4d50-a85c-d39353a790b9.jpg"
+                            class="card-img-top img-fluid">
+                        <div class="card-block">
+                            <h4 style="text-align: center;padding-top: 10px;" class="card-title">Library</h4>
+                        </div>
+                    </div>
+                    <!-- End Card 4 Front -->
+
+                    <!-- Card 4 Back -->
+                    <div class="card back">
+                        <div class="card-header">
+                           Library
+                        </div>
+                        <div class="card-block">
+
+                            <p class="card-text">Reference books are available for students and teachers. They are served with an ample number of books from library. Texts books, reference books and other educational journals are its assets. Newspapers and magazines available to broaden the student knowledge. </p>
+
+                        </div>
+                    </div>
+                    <!-- End Card 4 Back -->
+                </div>
+            </label>
+            <!-- End Card 4 -->
+
+
+            <!-- Card 5 -->
+            <input type="checkbox" id="card-5" />
+            <label class="col-md-4 card-container" for='card-5'>
+                <div class="card-flip">
+                    <!-- Card 5 Front -->
+                    <div class="card front">
+                        <img src="http://terseschool.edu.np/Images/Feature/11181ddb-cd3f-4ed1-ba15-21a5cf6a8ba5.jpg"
+                            class="card-img-top img-fluid">
+                        <div class="card-block">
+                            <h4 style="text-align: center;padding-top: 10px;" class="card-title">Sports and ECA</h4>
+                        </div>
+                    </div>
+                    <!-- End Card 5 Front -->
+
+                    <!-- Card 5 Back -->
+                    <div class="card back">
+                        <div class="card-header">
+                          Sports and ECA
+                        </div>
+                        <div class="card-block">
+
+                            <p class="card-text">Various extra - curricular activities (ECA) are conducted to bring the diverse potential of the students. School is trying to promote their skills, abilities and confidence.  Students are encouraged to participate in intra and inter school tournaments. Quiz contest, volleyball,  athletics, creative writing , debate , speech program, singing and dancing are major ECA. </p>
+
+                        </div>
+                    </div>
+                    <!-- End Card 5 Back -->
+                </div>
+            </label>
+            <!-- End Card 5 -->
+            <!-- Card 6 -->
+            <input type="checkbox" id="card-6" />
+            <label class="col-md-4 card-container" for='card-6'>
+                <div class="card-flip">
+                    <!-- Card 5 Front -->
+                    <div class="card front">
+                        <img src="http://terseschool.edu.np/Images/Feature/9ab459c2-74ff-4989-9779-b0ea1ec2e9c8.jpg"
+                            class="card-img-top img-fluid">
+                        <div class="card-block">
+                            <h4 style="text-align: center;padding-top: 10px;" class="card-title">CCTV</h4>
+                        </div>
+                    </div>
+                    <!-- End Card 6 Front -->
+
+                    <!-- Card 6 Back -->
+                    <div class="card back">
+                        <div class="card-header">
+                            CCTV
+                        </div>
+                        <div class="card-block">
+
+                            <p class="card-text">Monitoring and security of our students is importance in school. It supplements the security guards. It helps in monitoring and keeping track of activities taking place in school premises.
+
+                                It allows for maintenance of an effective access control so that only authorized persons access the school thus making it easier to keep the entrances and exits of a school secure.
+                                
+                                It helps in keeping a watch on valuables and appropriate use of resources within the school.</p>
+
+                        </div>
+                    </div>
+                    <!-- End Card 6 Back -->
+                </div>
+            </label>
+            <!-- End Card 6 -->
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+<div>
+    <h1 class="text-white">A Place To Call Home</h1>
+    <p><a class="btn btn-outline-danger text-white" href="/about-us">Learn More
+    </a></p>
+    </div>
+
+    
+    
+
+
+    <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=jorpati%20believers%20school+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.maps.ie/route-planner.htm">Driving Route Planner</a></div>

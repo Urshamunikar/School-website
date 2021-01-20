@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .class1 img{
+            max-width: 100%;
+  height: auto;
+        }
+      .container{
+          display: flex;
+      }
+      @media only screen and (max-width: 500px) {
+          .container{
+              flex-direction: column;
+          }
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="class1">
+            <img src="img/pic1.jpg" alt="" width="200" height="200">
+        </div>
+        <div class="class2">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit eligendi nulla laboriosam, assumenda enim voluptatum ipsa ad ullam quasi modi itaque cumque dolores! Dicta doloribus ea provident harum numquam fugiat!</p>
+        </div>
+    </div>
+</body>
+</html>

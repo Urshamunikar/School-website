@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="col-md-10 table-bordered" style="padding:10px;">
+        <center>
+            <h1 style="color:black">Admission Form</h1>
+        </center>
+        <hr>
+        <form method="post" action="/Admission" enctype="multipart/form-data" novalidate="novalidate">
+            <div class="row no-margin">
+                <div class="row no-margin" style="background-color: #028fcc;">
+                    <h2 style="color:white;padding:0px 15px;margin-top:10px;">Personal Details</h2>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-1">
+                        <label class="control-label" style="margin-top:5px;">Name : </label>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" id="Name" name="Name" placeholder="Enter your name" required=""
+                            type="text" value="">
+                        <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="col-md-1">
+                        <label class="control-label" style="margin-top:5px;">DOB : </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control" data-val="true" data-val-date="The field DOB must be a date."
+                            id="DOB" name="DOB" placeholder="DOB" required="" type="date" value="">
+                        <span class="field-validation-valid" data-valmsg-for="DOB" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="col-md-1">
+                        <label class="control-label" style="margin-top:5px;">Gender : </label>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-control" id="Gender" name="Gender" required="">
+                            <option value="">Select One</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span class="field-validation-valid" data-valmsg-for="Gender" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-1" style="padding-right:0px;">
+                        <label class="control-label" style="margin-top:5px;">Address : </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control" id="CurrentAddress" name="CurrentAddress"
+                            placeholder="Current Address" required="" type="text" value="">
+                        <span class="field-validation-valid" data-valmsg-for="CurrentAddress"
+                            data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="col-md-1">
+                        <label class="control-label" style="margin-top:5px;">Phone : </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control" id="Phone" name="Phone" placeholder="Your Phone Number" required=""
+                            type="text" value="">
+                        <span class="field-validation-valid" data-valmsg-for="Phone" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="col-md-1">
+                        <label class="control-label" style="margin-top:5px;">Email : </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control" id="Email" name="Email" placeholder="Your Email" type="email"
+                            value="">
+                        <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="control-label" style="margin-top:5px;">Father's Name : </label>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" id="FatherName" name="FatherName" placeholder="Your Father's Name"
+                            type="text" value="">
+                        <span class="field-validation-valid" data-valmsg-for="FatherName"
+                            data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="control-label" style="margin-top:5px;">Mother's Name : </label>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" id="MotherName" name="MotherName" placeholder="Your Mother's Name"
+                            type="text" value="">
+                        <span class="field-validation-valid" data-valmsg-for="MotherName"
+                            data-valmsg-replace="true"></span>
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="control-label" style="margin-top:5px;">Father's Phone No. : </label>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" id="FPhone" name="FPhone" placeholder="Your Father's Phone No."
+                            type="text" value="">
+                        <span class="field-validation-valid" data-valmsg-for="FPhone" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="control-label" style="margin-top:5px;">Mother's Phone No. : </label>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" id="MPhone" name="MPhone" placeholder="Your Mother's Phone No."
+                            type="text" value="">
+                        <span class="field-validation-valid" data-valmsg-for="MPhone" data-valmsg-replace="true"></span>
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="control-label" style="margin-top:5px;">Address. : </label>
+                    </div>
+                    <div class="col-md-10">
+                        <input class="form-control" id="PermanentAddress" name="PermanentAddress"
+                            placeholder="Your Permanent Address." type="text" value="">
+                        <span class="field-validation-valid" data-valmsg-for="PermanentAddress"
+                            data-valmsg-replace="true"></span>
+                    </div>
+
+                </div>
+                <br>
+                <div class="row no-margin" style="background-color: #028fcc">
+                    <h2 style="color:white;padding:0px 15px;margin-top:10px;">Education Details</h2>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="control-label" style="margin-top:5px;">Admission for : </label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="btn-group bootstrap-select show-tick form-control"><button type="button"
+                                class="btn dropdown-toggle bs-placeholder btn-default" data-toggle="dropdown"
+                                role="button" data-id="Classes" title="Select Class"><span
+                                    class="filter-option pull-left">Select Class</span>&nbsp;<span
+                                    class="bs-caret"><span class="caret"></span></span></button>
+                            <div class="dropdown-menu open" role="combobox">
+                                <div class="bs-searchbox"><input type="text" class="form-control" autocomplete="off"
+                                        role="textbox" aria-label="Search"></div>
+                                <ul class="dropdown-menu inner" role="listbox" aria-expanded="false">
+                                    <li data-original-index="0" class="selected"><a tabindex="0" class="" style=""
+                                            data-tokens="null" role="option" aria-disabled="false"
+                                            aria-selected="true"><span class="text">Select Class</span><span
+                                                class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"
+                                            role="option" aria-disabled="false" aria-selected="false"><span
+                                                class="text">ECED</span><span
+                                                class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"
+                                            role="option" aria-disabled="false" aria-selected="false"><span
+                                                class="text">UCED</span><span
+                                                class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"
+                                            role="option" aria-disabled="false" aria-selected="false"><span
+                                                class="text">One </span><span
+                                                class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="4"><a tabindex="0" class="" style="" data-tokens="null"
+                                            role="option" aria-disabled="false" aria-selected="false"><span
+                                                class="text">Two</span><span
+                                                class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="5"><a tabindex="0" class="" style="" data-tokens="null"
+                                            role="option" aria-disabled="false" aria-selected="false"><span
+                                                class="text">Three</span><span
+                                                class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="6"><a tabindex="0" class="" style="" data-tokens="null"
+                                            role="option" aria-disabled="false" aria-selected="false"><span
+                                                class="text">Four</span><span
+                                                class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="7"><a tabindex="0" class="" style="" data-tokens="null"
+                                            role="option" aria-disabled="false" aria-selected="false"><span
+                                                class="text">Five </span><span
+                                                class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="8"><a tabindex="0" class="" style="" data-tokens="null"
+                                            role="option" aria-disabled="false" aria-selected="false"><span
+                                                class="text">Six</span><span
+                                                class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="9"><a tabindex="0" class="" style="" data-tokens="null"
+                                            role="option" aria-disabled="false" aria-selected="false"><span
+                                                class="text">Seven</span><span
+                                                class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="10"><a tabindex="0" class="" style="" data-tokens="null"
+                                            role="option" aria-disabled="false" aria-selected="false"><span
+                                                class="text">Eight</span><span
+                                                class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="11"><a tabindex="0" class="" style="" data-tokens="null"
+                                            role="option" aria-disabled="false" aria-selected="false"><span
+                                                class="text">Nine</span><span
+                                                class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="12"><a tabindex="0" class="" style="" data-tokens="null"
+                                            role="option" aria-disabled="false" aria-selected="false"><span
+                                                class="text">Ten</span><span
+                                                class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                </ul>
+                            </div><select class="selectpicker show-tick form-control" data-live-search="true"
+                                id="Classes" name="Classes" ondropdownhide="FillSection(this);" tabindex="-98">
+                                <option value="">Select Class</option>
+                                <option value="1">ECED</option>
+                                <option value="2">UCED</option>
+                                <option value="3">One </option>
+                                <option value="4">Two</option>
+                                <option value="5">Three</option>
+                                <option value="6">Four</option>
+                                <option value="7">Five </option>
+                                <option value="8">Six</option>
+                                <option value="9">Seven</option>
+                                <option value="10">Eight</option>
+                                <option value="11">Nine</option>
+                                <option value="12">Ten</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label" style="margin-top:5px;">Your Marksheet of previous class : </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="file" name="document" class="form-control">
+                    </div>
+
+                </div>
+                <br>
+                <br>
+
+                <hr>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-3">
+                        <input type="submit" class="form-control btn btn-success" value="Apply">
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-3">
+                        <input type="reset" class="form-control btn btn-warning" value="Reset">
+                    </div>
+
+                    <div class="col-md-2"></div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

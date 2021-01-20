@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header {
+            position: fixed;
+            top: 0px;
+            background-color: #60b4df;
+            width: 100%;
+            z-index: 1000;
+        }
+
+
+
+        .container1 {
+            max-width: 65rem;
+            padding: 0 2rem;
+            margin: 0 auto;
+            display: flex;
+            position: relative;
+        }
+
+        .logo-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-btn {
+            flex: 3;
+            display: flex;
+        }
+
+        .nav-links {
+            flex: 2;
+        }
+
+        .log-sign {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 3rem;
+        }
+
+        .logo span {
+            font-weight: 300;
+        }
+
+
+
+        .btn.solid,
+        .btn.transparent:hover {
+            background-color: #fff;
+            color: #69bde7;
+        }
+
+        .btn.transparent,
+        .btn.solid:hover {
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .nav-links>ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link>a {
+            line-height: 3rem;
+            color: #fff;
+            padding: 0 .8rem;
+            letter-spacing: 1px;
+            font-size: .95rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: .5s;
+        }
+
+        .nav-link>a>i {
+            margin-left: .2rem;
+        }
+
+        .nav-link:hover>a {
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 10rem;
+            transform: translateY(10px);
+            opacity: 0;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        .dropdown ul {
+            position: relative;
+        }
+
+        .dropdown-link>a {
+            display: flex;
+            background-color: #fff;
+            color: #3498db;
+            padding: .5rem 1rem;
+            font-size: .9rem;
+            align-items: center;
+            justify-content: space-between;
+            transition: .3s;
+        }
+
+        .dropdown-link:hover>a {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .dropdown-link:not(:nth-last-child(2)) {
+            border-bottom: 1px solid #efefef;
+        }
+
+        .dropdown-link i {
+            transform: rotate(-90deg);
+        }
+
+        .arrow {
+            position: absolute;
+            width: 11px;
+            height: 11px;
+            top: -5.5px;
+            left: 32px;
+            background-color: #fff;
+            transform: rotate(45deg);
+            cursor: pointer;
+            transition: .3s;
+            z-index: -1;
+        }
+
+        .dropdown-link:first-child:hover~.arrow {
+            background-color: #3498db;
+        }
+
+        .dropdown-link {
+            position: relative;
+        }
+
+        .dropdown.second {
+            top: 0;
+            left: 100%;
+            padding-left: .8rem;
+            cursor: pointer;
+            transform: translateX(10px);
+        }
+
+        .dropdown.second .arrow {
+            top: 10px;
+            left: -5.5px;
+        }
+
+        .nav-link:hover>.dropdown,
+        .dropdown-link:hover>.dropdown {
+            transform: translate(0, 0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .hamburger-menu-container {
+            flex: 1;
+            display: none;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .hamburger-menu {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .hamburger-menu div {
+            width: 1.6rem;
+            height: 3px;
+            border-radius: 3px;
+            background-color: #fff;
+            position: relative;
+            z-index: 1001;
+            transition: .5s;
+        }
+
+        .hamburger-menu div:before,
+        .hamburger-menu div:after {
+            content: '';
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            background-color: #fff;
+            border-radius: 3px;
+            transition: .5s;
+        }
+
+        .hamburger-menu div:before {
+            transform: translateY(-7px);
+        }
+
+        .hamburger-menu div:after {
+            transform: translateY(7px);
+        }
+
+        #check {
+            position: absolute;
+            top: 50%;
+            right: 1.5rem;
+            transform: translateY(-50%);
+            width: 2.5rem;
+            height: 2.5rem;
+            z-index: 90000;
+            cursor: pointer;
+            opacity: 0;
+            display: none;
+        }
+
+        #check:checked~.hamburger-menu-container .hamburger-menu div {
+            background-color: transparent;
+        }
+
+        #check:checked~.hamburger-menu-container .hamburger-menu div:before {
+            transform: translateY(0) rotate(-45deg);
+        }
+
+        #check:checked~.hamburger-menu-container .hamburger-menu div:after {
+            transform: translateY(0) rotate(45deg);
+        }
+
+        @keyframes animation {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        @media (max-width: 920px) {
+            .hamburger-menu-container {
+                display: flex;
+            }
+
+            #check {
+                display: block;
+            }
+
+            .nav-btn {
+                position: fixed;
+                height: calc(100vh - 3rem);
+                top: 3rem;
+                left: 0;
+                width: 100%;
+                background-color: #69bde7;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                overflow-x: hidden;
+                overflow-y: auto;
+                transform: translateX(100%);
+                transition: .65s;
+            }
+
+            #check:checked~.nav-btn {
+                transform: translateX(0);
+            }
+
+            #check:checked~.nav-btn .nav-link,
+            #check:checked~.nav-btn .log-sign {
+                animation: animation .5s ease forwards var(--i);
+            }
+
+            .nav-links {
+                flex: initial;
+                width: 100%;
+            }
+
+            .nav-links>ul {
+                flex-direction: column;
+            }
+
+            .nav-link {
+                width: 100%;
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            .nav-link>a {
+                line-height: 1;
+                padding: 1.6rem 2rem;
+            }
+
+            .nav-link:hover>a {
+                transform: scale(1);
+                background-color: #50a9d6;
+            }
+
+            .dropdown,
+            .dropdown.second {
+                position: initial;
+                top: initial;
+                left: initial;
+                transform: initial;
+                opacity: 1;
+                pointer-events: auto;
+                width: 100%;
+                padding: 0;
+                background-color: #3183ac;
+                display: none;
+            }
+
+            .nav-link:hover>.dropdown,
+            .dropdown-link:hover>.dropdown {
+                display: block;
+            }
+
+            .nav-link:hover>a>i,
+            .dropdown-link:hover>a>i {
+                transform: rotate(360deg);
+            }
+
+            .dropdown-link>a {
+                background-color: transparent;
+                color: #fff;
+                padding: 1.2rem 2rem;
+                line-height: 1;
+            }
+
+            .dropdown.second .dropdown-link>a {
+                padding: 1.2rem 2rem 1.2rem 3rem;
+            }
+
+            .dropdown.second .dropdown.second .dropdown-link>a {
+                padding: 1.2rem 2rem 1.2rem 4rem;
+            }
+
+            .dropdown-link:not(:nth-last-child(2)) {
+                border-bottom: none;
+            }
+
+            .arrow {
+                z-index: 1;
+                background-color: #69bde7;
+                left: 10%;
+                transform: scale(1.1) rotate(45deg);
+                transition: .5s;
+            }
+
+            .nav-link:hover .arrow {
+                background-color: #50a9d6;
+            }
+
+            .dropdown .dropdown .arrow {
+                display: none;
+            }
+
+            .dropdown-link:hover>a {
+                background-color: #3a91bd;
+            }
+
+            .dropdown-link:first-child:hover~.arrow {
+                background-color: #50a9d6;
+            }
+
+            .nav-link>a>i {
+                font-size: 1.1rem;
+                transform: rotate(-90deg);
+                transition: .7s;
+            }
+
+            .dropdown i {
+                font-size: 1rem;
+                transition: .7s;
+            }
+
+        }
+    </style>
+
+    <title>Responsive Navbar</title>
+</head>
+
+<body>
+    <header>
+        <div class="container1">
+            <input type="checkbox" name="" id="check">
+
+            <div class="logo-container">
+                <h3 class="logo">Brand<span>Name</span></h3>
+            </div>
+
+            <div class="nav-btn">
+                <div class="nav-links">
+                    <ul>
+                        <li class="nav-link" style="--i: .6s">
+                            <a href="/home">Home</a>
+                        </li>
+                        <li class="nav-link" style="--i: 1.35s">
+                            <a href="/about-us">About</a>
+                        </li>
+                        <li class="nav-link" style="--i: .85s">
+                            <a href="#">Menu<i class="fa fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 1</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 2</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 3<i class="fa fa-caret-down"></i></a>
+                                        <div class="dropdown second">
+                                            <ul>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 1</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 2</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 3</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">More<i class="fa fa-caret-down"></i></a>
+                                                    <div class="dropdown second">
+                                                        <ul>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 1</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 2</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 3</a>
+                                                            </li>
+                                                            <div class="arrow"></div>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <div class="arrow"></div>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 4</a>
+                                    </li>
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-link" style="--i: 1.1s">
+                            <a href="#">Services<i class="fa fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 1</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 2</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 3<i class="fa fa-caret-down"></i></a>
+                                        <div class="dropdown second">
+                                            <ul>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 1</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 2</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 3</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">More<i class="fa fa-caret-down"></i></a>
+                                                    <div class="dropdown second">
+                                                        <ul>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 1</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 2</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 3</a>
+                                                            </li>
+                                                            <div class="arrow"></div>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <div class="arrow"></div>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 4</a>
+                                    </li>
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-link" style="--i: 1.35s">
+                            <a href="/contact-us">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <div class="hamburger-menu-container">
+                <div class="hamburger-menu">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim id eum mollitia saepe omnis, ratione optio harum
+        corrupti quam dignissimos eos similique sunt adipisci expedita molestias numquam. Eius, harum at. Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Quidem repudiandae vel et quas hic non eligendi molestias odit
+        nihil culpa placeat, ab obcaecati quod quam excepturi quis itaque vero reiciendis. Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Dicta est deserunt ipsa ex consequuntur, ut odio provident quas esse illo ducimus
+        sit voluptas quo numquam iusto amet nulla, optio omnis? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Illum rerum eaque quae voluptatum ex in dolor nemo illo, similique, unde excepturi fuga facere quam quod aliquam
+        eum atque dolorum architecto. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus earum
+        officia necessitatibus iste cum possimus, a tempora quo similique doloremque. Illo dolorem perspiciatis nesciunt
+        voluptatem soluta quibusdam sit asperiores suscipit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Nobis veniam unde atque commodi laborum veritatis deleniti aliquam necessitatibus, delectus porro accusamus
+        quibusdam sapiente molestias autem aperiam eaque eius expedita architecto?Lorem ipsum dolor, sit amet
+        consectetur adipisicing elit. Ipsa nisi ipsum assumenda praesentium dolorum libero impedit aliquid voluptate,
+        possimus inventore quos quae, saepe officiis, nesciunt quod ad placeat expedita deleniti. Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Ipsum itaque ea odio ab eius facilis rerum sunt dolor dicta, veritatis sit
+        tempore exercitationem inventore adipisci, libero non quibusdam nam at? Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Quasi explicabo harum necessitatibus eaque error nihil. Beatae impedit eaque minima? Magni
+        illo alias natus vel sunt saepe recusandae, impedit consectetur officiis. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Iste architecto maiores vero a doloremque cupiditate voluptatum ipsam. Porro quos totam est!
+        Esse corrupti, delectus consectetur cumque nostrum quo possimus sapiente?
+
+    </p>
+    <img src="/img/cal.jpg" alt="">
+</body>
+
+</html>
+
+
+
+
+<div class="container">
+    <div class="row">
+
+
+        <div class="col-sm-6">
+            <div class="text_3d">
+                <div class="l_title" style="align-items: center;">
+                    <img src="https://webschool-react.s3.ap-south-1.amazonaws.com/media/webschooldemo3/django-summernote/2020-12-13/6581960e-af1f-4c5c-8a31-e51e7335db77.png"
+                        alt="">
+                    <h6>Discover the features</h6>
+                    <h2>Yarshatech Innovation</h2>
+                </div>
+                <p>Yarshatech Innovation is an incredibly technology company for corporate and creative professionals.
+                    We are diverse team from developers, designers, marketers, engineers to professionals </p>
+                <ul style="list-style: none;">
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Customer Satisfaction</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i>Feedback and experience</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i>Unconditional service and support</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i>Corporate Support Responsibility (CSR)</li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-6">
+
+            <video style="margin-top:2rem;" width="100%" height="240" controls muted autoplay>
+                <source src="movie.mp4" type="video/mp4">
+
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="team_people_area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="team_people_text">
+                    <div class="l_title">
+                        <img align="center"
+                            src="https://webschool-react.s3.ap-south-1.amazonaws.com/media/webschooldemo3/django-summernote/2020-12-13/6581960e-af1f-4c5c-8a31-e51e7335db77.png"
+                            alt="">
+                        <h6>Discover the features</h6>
+                        <h2>We build a strong team of great people</h2>
+                    </div>
+                    <p>Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel
+                        suscipit dolor. Donec elementum velit a orci facilisis rutrum. Nam convallis vel erat id
+                        dictum. Sed ut risus in orci convallis viverra.</p>
+                    <ul>
+                        <li><a href="#">Nunc nec maximus dui, </a></li>
+                        <li><a href="#">Aenean pellentesque elit vitae</a></li>
+                        <li><a href="#">Aenean pellentesque elit vitae</a></li>
+                        <li><a href="#">Ex mauris, ornare eget pretium </a></li>
+                        <li><a href="#">Cras ex mauris, ornare eget preti</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <form>
+                    <label>
+                        <input type="text" required />
+                        <div class="label-text">Name</div>
+                    </label>
+                    <label>
+                        <input type="text" required />
+                        <div class="label-text">Address</div>
+                    </label>
+                    <label>
+                        <input type="text" />
+                        <div class="label-text">Company's Name</div>
+                    </label>
+                    <label>
+                        <input type="text" required />
+                        <div class="label-text">E-mail</div>
+                    </label>
+                    <label>
+                        <input type="tel" />
+                        <div class="label-text">Phone</div>
+                    </label>
+                    <button>Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+   
+
+   
+
+
+    #contact input[type="text"],
+    #contact input[type="email"],
+    #contact input[type="tel"],
+    #contact input[type="url"],
+    #contact textarea,
+    #contact button[type="submit"] {
+        font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+    }
+
+    #contact {
+        background: #F9F9F9;
+        padding: 25px;
+        margin: 150px 0;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+
+    #contact h3 {
+        display: block;
+        font-size: 30px;
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+
+    #contact h4 {
+        margin: 5px 0 15px;
+        display: block;
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    fieldset {
+        border: medium none !important;
+        margin: 0 0 10px;
+        min-width: 100%;
+        padding: 0;
+        width: 100%;
+    }
+
+    #contact input[type="text"],
+    #contact input[type="email"],
+    #contact input[type="tel"],
+    #contact input[type="url"],
+    #contact textarea {
+        width: 100%;
+        border: 1px solid #ccc;
+        background: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
+    }
+
+    #contact input[type="text"]:hover,
+    #contact input[type="email"]:hover,
+    #contact input[type="tel"]:hover,
+    #contact input[type="url"]:hover,
+    #contact textarea:hover {
+        -webkit-transition: border-color 0.3s ease-in-out;
+        -moz-transition: border-color 0.3s ease-in-out;
+        transition: border-color 0.3s ease-in-out;
+        border: 1px solid #aaa;
+    }
+
+    #contact textarea {
+        height: 100px;
+        max-width: 100%;
+        resize: none;
+    }
+
+    #contact button[type="submit"] {
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        background: #4CAF50;
+        color: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
+        font-size: 15px;
+    }
+
+  
+
+    #contact button[type="submit"]:active {
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+  
+    #contact input:focus,
+    #contact textarea:focus {
+        outline: 0;
+        border: 1px solid #aaa;
+    }
+
+    ::-webkit-input-placeholder {
+        color: #888;
+    }
+
+    :-moz-placeholder {
+        color: #888;
+    }
+
+    ::-moz-placeholder {
+        color: #888;
+    }
+
+    :-ms-input-placeholder {
+        color: #888;
+    }
+
+    .more_btn {
+    padding: 0px 46px;
+    background-image: -webkit-gradient(linear, left top, right top, from(#6fbcfe), color-stop(51%, #998dff), to(#6fbcfe));
+    background-image: -webkit-linear-gradient(left, #6fbcfe 0%, #998dff 51%, #6fbcfe 100%);
+    background-image: -o-linear-gradient(left, #6fbcfe 0%, #998dff 51%, #6fbcfe 100%);
+    background-image: linear-gradient(to right, #6fbcfe 0%, #998dff 51%, #6fbcfe 100%);
+    background-size: 200% auto;
+    z-index: 2;
+    display: inline-block;
+    -webkit-transition: all 400ms ease-out;
+    -o-transition: all 400ms ease-out;
+    transition: all 400ms ease-out;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    line-height: 55px;
+    border: 6px solid rgba(204, 241, 255, 0.5);
+    border-radius: 33px;
+}
+</style>
+<div class="container">
+    <form id="contact" action="" method="post">
+        <h3>Get A Demo</h3>
+
+        <fieldset>
+            <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Your Address" type="text" tabindex="2" required>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Your Email Address" type="email" tabindex="3" required>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Company's Name(optional)" type="url" tabindex="4">
+        </fieldset>
+        <fieldset>
+            <input placeholder="Your Phone Number (optional)" type="tel" tabindex="5">
+        </fieldset>
+        <fieldset>
+            <label for="demo">Choose for demo:</label>
+            <select id="demo">
+                <option value="POS">POS</option>
+                <option value="Online Ordering System">Online Ordering System</option>
+               
+            </select>
+        </fieldset>
+        <fieldset>
+            <button name="submit" type="submit"  class="more_btn">Submit</button>
+        </fieldset>
+
+    </form>
+</div>

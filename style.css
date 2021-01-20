@@ -13,7 +13,24 @@
     display: flex;
     justify-content: space-between;
     padding: 0.5rem;
-    background-color:rebeccapurple;
+    background-color:#028fcc;
+  }
+
+
+.social-links a{
+  text-align: center;
+float: right;
+width: 36px;
+height: 36px;
+border: 1px solid #ffc107;
+border-radius: 100%;
+margin-right: 7px; /*space between*/
+
+} 
+.social-links a i {
+font-size: 20px;
+  line-height: 38px;
+color: #ffc107;
 }
 .follow li a { 
     color: blue;
@@ -23,6 +40,9 @@
     display: inline-block;
     padding-left: 20px;
     
+}
+.details ul li {
+
 }
 .details ul li a, .follow li{
     text-decoration: none;

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items:center;
+
+        }
+        .main-nav li a{
+            padding: 20px;
+            color: black;
+            font-size: 1rem;
+            font-weight: 900;
+        }
+        .main-nav li a:hover,
+      .main-nav li a:active {
+        background: #0082e6;
+        color: white;
+
+      }
+        @media screen and (max-width:975px){
+            
+        .logo {
+            display: block;
+            margin: auto;
+        }
+        .main-nav li {
+            margin:10px 0;
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a class="logo" href="#"><img height="60px" width="60px"
+                src="https://webschool-react.s3.ap-south-1.amazonaws.com/media/Yarshatech2/django-summernote/2020-12-07/db7258d6-64b9-4915-b43c-612267d62d92.jpg"
+                alt=""></a>
+        <ul class="main-nav">
+
+            <li><a href="/our-voice">Message</a></li>
+            <li><a href="/job-application">Vacancy</a></li>
+            <li><a href="/online-admission">Admission</a></li>
+            <li><a href="/academic-calendar">Calendar</a></li>
+            <li><a href="/emergency-number">Emergency Numbers</a></li>
+            <li><a href="/subscribe">Subscribe</a></li>
+            <li><a href="/downloads">Downloads</a></li>
+            <li><a href="/login">Login</a></li>
+
+        </ul>
+    </header>
+
+</body>
+
+</html>
